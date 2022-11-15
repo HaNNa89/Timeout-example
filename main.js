@@ -9,7 +9,7 @@ function main() {
 //start på programmet. En main är en callback-funktion.
 
 timeoutRef = setTimeout(changeBackgroundColor, 2000); //vad ska köras?
-addEventListeners();
+setupEventListeners();
 
 }
 
@@ -18,7 +18,7 @@ function changeBackgroundColor() {
     document.body.style.background = "pink"
 }
 
-function addEventListeners () {
+function setupEventListeners () {
     const button = document.getElementById("cancel");
     button.addEventListener('click', cancelBackgroundChange);
 }
