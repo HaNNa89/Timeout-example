@@ -15,21 +15,47 @@ setupEventListeners();
 
 
 function changeBackgroundColor() {
-    document.body.style.background = "pink"
+    document.body.style.background = getRandomColor();
 }
 
 function setupEventListeners () {
-    const button = document.getElementById("cancel");
-    button.addEventListener('click', cancelBackgroundChange);
-}
+    const cancelTimoutbutton = document.getElementById("cancel");
+    cancelTimoutbutton.addEventListener('click', cancelBackgroundChange);
+    
+const startIntervalButton = document.getElementById("start-interval");
+startIntervalButton.addEventListener('click', startBackroundChangeInterval)
+
+}   
 
 function cancelBackgroundChange () {
     clearTimeout(timeoutRef);
 
 }
 
+function  startBackroundChangeInterval() {
+    setInterval(changeBackgroundColor, 1000);
+}
 
+function getRandomColor() {
 
+const value = Math.random();
+
+if (value < 0.2) {
+    return "blue";
+
+} else if (value < 0.4) {
+    return "red";
+} else if (value < 0.6) {
+    return "green";
+} else if (value < 0.8) {
+    return "grey";
+} else {
+    return "yellow";
+}
+
+ 
+
+}
 
 
 
