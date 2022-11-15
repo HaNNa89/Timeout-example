@@ -3,15 +3,29 @@
 
 window.addEventListener('DOMContentLoaded', main);
 
+let timeoutRef;
+
 function main() {
 //start på programmet. En main är en callback-funktion.
 
-setTimeout(changeBackgroundColor, 4000); //vad ska köras?
+timeoutRef = setTimeout(changeBackgroundColor, 2000); //vad ska köras?
+addEventListeners();
 
 }
 
+
 function changeBackgroundColor() {
     document.body.style.background = "pink"
+}
+
+function addEventListeners () {
+    const button = document.getElementById("cancel");
+    button.addEventListener('click', cancelBackgroundChange);
+}
+
+function cancelBackgroundChange () {
+    clearTimeout(timeoutRef);
+
 }
 
 
